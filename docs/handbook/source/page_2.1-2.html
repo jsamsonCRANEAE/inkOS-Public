@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>InkOS Software Load, Malfunction</title>
+<style>
+/* Drafting Caps: subset of Routed Gothic (c) 2017 Darren Embry, SIL OFL 1.1, renamed per OFL clause 3. */
+@font-face { font-family: "Drafting Caps"; src: url("data:font/woff;base64,d09GRgABAAAAACTgAAwAAAAATXwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABjAAAAFQAAABgWnEFdmNtYXAAAAKsAAAAaQAAAHxlpQNMZ2FzcAAAJNgAAAAIAAAACP//AANnbHlmAAADvAAAFpQAACROwaoD8mhlYWQAAAEcAAAANgAAADYYI42PaGhlYQAAAVQAAAAdAAAAJAlbAtNobXR4AAAB4AAAAMkAAAE+srQTqmtlcm4AABpQAAAAzgAAAbwEfAMrbG9jYQAAAxgAAACkAAAApHSwfQ1tYXhwAAABdAAAABgAAAAgAFcAWW5hbWUAABsgAAAJogAAI0DEDi+OcG9zdAAAJMQAAAATAAAAIP/SAGIAAQAAAAEAAKwjuotfDzz1AAsEAAAAAADN/TO6AAAAAOcHFmgAAP9ABAADMAAAAAgAAgAAAAAAAHicY2BkYGD5+6+FIYaFAQRYGBgYGVCBHwBW7QM4AAAAeJxjYGRgYAhkiGBgZQABRgY0AAAR5gCxeJxjYGFyYpzAwMrAwDST6QwDA0M/hGZ8zWDMyMnAwMTAyswABg0MDCCWAgMUBKS5pjA0MCgoTmZ2+O/AEMPyl7GGgYGBESTHJMD0AKyWEQCDGw07eJxNkCFOBFEQRF/XcIA9wg9q5MgRZNNiQ75ciWyJRJGVK5ErkV8iECORyJUcYY6BJD37BaJSnUpXp6rtlXsrYIVqZ1wNt198CHzY8cCK29OGInCdmW2kWqOkR755RjWOahzS3+dHNeau7bf7IzX9/+DDC66FSV+EPqkbJ94JNaquhB05qTCpEboQw57QD6GVqo/O330/b12J5OGZSScmXW5sM555be5dHLKzLYQVwhaK3phtvfXUYdMzcwi4Ayz/AjvWxB/cYDrrAAAAeJxtjDEOgkAUBUeWWJO4sf67JRWh8TqU1LQmnkEx3kMLQkXrFezIepJHQiiZZpIpBsgAB3gch9U5LXCmwHGkouHGh4GRn3mL4SkBRs2V99ZPFsNd0l9JX73U66EuXVI5T+t1hwUB1h5CAAAAAAAAAAAAACYASwDEATABhwH8AhICUAKQAu8DFwNGA1wDcgOaA74EBgRuBKME7wVOBYAF1wY0BloGmQbRBvgHNAeBB+0IKghsCLQI5QkSCTcJhwmyCckJ8AovCkwKiAq2CtoLAwtgC6AMDgwuDFQMkwzqDTINZw2VDbcN2w39DjMOSQ51DuMO+g9rD6UPwg/6EDYQTBCREKcQvRDPESMRdxHIEid4nI1aeWwc13l/17w39+zszOzsMdxT3F2R4rUndZCiSUWirMO0jlhyJJuWD8lOk6qyjchK6hKWktitIwtp0sSNYbOAkLqNUwi1gRoNUKhBkiZOCqhpkAiNbDBB6gpo0gqp/xASc1m8N7PkynHS/sHdmdmZN9/5+33f9wgQmAUAXEVLQAM+AG2XlorlZqNVryVQLeHZLi2Wm3bj6kgh08//jlSDoBrMFUb6M4WRfvR44HZOukHgwgsuQGAKXoJT3bXitYTnieebjXLP8btiiXPiEy0F7hX+fO8H4CsBgObREtgP7gKgv1xuNhqtdrvEKC0VK/yUnxXLjVa9vvrdatVrfiLhuYzdelJLuLRUWv3ma5Qxq7fhjOVCOLZ7I0nHGBXHdS7Cnvi9/OuJ7nW0dgv6zTswc+K744ikY0gi6NV/tlwkruJXg2owFVSD6Aqjr64drf0E4XNTUwBzjeHraAlMgBmwCwAoFK14QgXKIuOVK1z1Vpsrl0V+cxhxSzQbLW7fLPYTnksrlHqu77eajWFUgS8aMT9mBtunt2XL3HMtlSiSYfsm1vuskanU3k1BNUgP9xlEVX7keNX5KqRxC/5SdWLaKftga/+Yp7S4rk37A0aMmbqk2sTw2DNac1OutUdvit+olzIkI6a5OTmtVqxfxId01dElACSuF86jJcCABXyQA+MArOPKcJkb5SJ1EzX0nnNcbjYmURuuuhCauFTE+RMXTpy4IA9vGx7e9sue4/UpCBGC82ZgqLpBO4tY1XRq/Pf5++47f983Nw0ObhpEuZ6TTsIMMKUSRgspSn3DUJcXqMIwABhsWbmJfoCuAwNMgf0AwEnUbJRLReq59ZrErctMxBKhNxoVysJ0aUcp47kmYlnsCwexcqVcMpHnJuq1SdxuwXPVVmLPXYdmTw/BD8uagmVP+UBQDQKMN1177Nl7dzx9+vHn1HjGVmKWxYKkbqZfHJzcvL1w2+iddwSDGwp9ign/ieSqidLEROnuKc3UExRRVzv+HPfBwSlV+fun509trx/de+qj+7zquoJJVE2juRj7ZMV1UXG6uvEOyUoP9g0CAHmugkWRq7dk6pH35qW4d+USTOJRwB/MIs9lJvFcP+GL2CwVK8Ok2ZhkXGlIqCLJkt2f9e9RZdk1rKRF4xuKGcV0Hd92KLJSFq5IusUsnaX37Duz+bWLcU23UqbiqJnDR5/dXp2bma7X8lmFOPzd+ZVL4CYeBRsAcHhSJ/wscU3MPG56AQXtSdIYxhWeCw1qMt1jND5UyGQKGxxqJWWTKposxcp9ST/bb0uIIFwhkqqowaGjz/7Js0cPBwp0JMJcPZToiY+d2bcnzYiiSClhp7PwMnoTbAMAcsfTVUARsUkZj81KhVFa5Mm5Ckv8ZJLUa77f5l8JOJ+EGOUmuFUnchgbGqaU4sDMZpmf0pK0+xPFVNF0xn/ATFYVienoR2ZAZJk0g2rQlHSm+wxiCJPNpmZQMzA08YNmUF1TGE42m0SmBGEAwTg4gWbRaZABAHCZIzdHMkbAUa+h2cB9OagGL3MRwgN47pZTfgAgmF35IlgCF0AOgHZ5NeqZO8ZBtTiMhBfak+hUPDlSCDaUadJEhGCCFIMRiGUiZxOFkaHS+D5oWhBCSExbURXEEsLX4CpcgOM8JluNVr0g7Fwo5gMXAi7BCnDfEfHJJeG8BS7we3tZa5Wpuhwl4pdTCloSDDeMOWTCScTBhWMLLRUP8/THGM4TMyYbaop2Fs3AoAJHqC6hBVmj3M7q8kKKL1VduYlOo+tAA46wKy2Wy41Wq5ZAXUQ7ffszf/3M7fwjceaFM2degN//xiuPPPIK/+icubG4eGORyzUHAJpD10EdgHhx1ZqUUWYy1tWexxFut9qtVheKPlcNzj/w4GdmZpnZX2gmCobNMHyIG6hzws4FpYMTM4xszd4xs2MXvB64D/zemXu2HBgkcsIrxvv8fMHjqONuuXfrjmpFQuV1udr2TS0XQLBt5SY6gpbAbgDaYa4lEvVa+F5WNFFRcFKjOBaxULvVahdEKBW44J5JmcgJnpmCmv5A0qjhM/dAY+eDd+0pjSCCeSyocR6/CMr23iN+5/uigDhp5yBiqp0oOAfuX/zo3qeKEEPzmwibemXsQxMzhx0eLbINFQVThuOscHRU6EEwVlPp8roBx//UwRMXdk9hmRHDF1XESgctoLcAAkUAoA1JTwoUiuUJxCOhtVlUOvUavNT5H/hm4HJi7lx2A0phzUys99xgyoVbYavznaAaXOLCXsrZ9pASo/CYnbM7F7gnV26iObQEGtxygpzrtZYwW1SxtDl4RS5lrRBBulZqPawagWkNb87PPvTQ7KFJ6qquKTOYR302nBJ+/U9ry/TJF188uevJEsKQat+iqcx6//hnj++QFVNOKDDvJINq8Mm+l3760p4pLMtEjpkAge0rN9ExdB2YYAcAbSFVN4oqUbSVisOywFGeElkSgnooHCkVTfJNZ7KVvn3f0R17dudmHv/w88+eNHOFQjGfzSTikkQ2Hzm6Ib9poOBzQqMm0xIMMS814FulwWop8Z2Bln1ns75/dg793cyn7z3yx0Q24+lsZaidSzb7Hnh+f1X3vKROdDNtEqJpiNmGpnjr2wcFegF0CC1x78WjIBOIS1fpahK3C8XxwIWX3cBUqdMYGRcA0d/cuTHb+ZSLXqgGOXuT4VNsDDbuOvbMrjy3Z/7IXz52fFOSM34Y89eBCwbABABOxNjcTJVhXCqW292Q7uV5WllLxzBLEolfO6XC/O6Dd62vynHX11OjPx8e+/zHTv35B7d//vj9zw89nW0f2jZ7IJd3m1nVc+G9aqadqx/eUy9sjmGJIDqUOzp2z1Pn73lox+YDh07+/uGR3bI3kylP31ZJD8U0HSKAwOTKTXQ3ug4swUdcPtoV118FQe5EUYuUisO4t2KkvBKBP7YGhqrOLR5NNTa2htcpoTfL2wbW6USWFKZbKQsSTff8nB0fbA3mkZ8fSaq3+FNLDW48UIt86fg5i+qmbBqSnIBEVTWZ6v3t+0C3z4iFvYHTg9j2+6F39w9eiWC88+AqnqOQhVAM5HhF8jt5qPdFv42THum+7LeTE/xhD5t0ObUAQD9P7v4yz+NKucHhsL8V8YokcR+gGSOrK505QjHCGEoS0Ri8pOhZQ8p0vgzvNsyzGekqIphLpCZUppGrUob//tWv0qShc23HwbfRLEqGluvlRdRzzHNAYFNnTsBp9/hnIh2gHtJmj/TlyHLtftFeiQCReAvBs58xySTFUnEC4Qy8u/Nlw5S4HvASoZQgSUIEG505SDA3Y/aspNKuwIpQh1KiJlRCsXKV2xFGHV1ecOY4AP29faY4EMUzYzz7RG3dak9K3QSDp7seeqcafOZbnyFM123bdbVSWguqQfu2mBNXGdqxc/vtXdaHf8h57567rSCVcONWTGduZnhM1MkPVRTdNGJxvTK2sS261pWbeBRdB1Oc9/p5fRvW9bFWPiz4BITTsGaq+SLUbAGlISdzxq/XwhzDZS6yOG+jjyAELX3nB1+4dg2OX0Om6c6Wp4bq0/sefnjfyHor6QaIZSwjKyns4vWLFx/z1pdtVcvebwz6hU2bCv6g8SFCGTGStMQXuPZCX/9Gv1SqjD392tNpN3A772DZsFhstPjYxYvXL1JNluBEtrDz1M5CFiAwCgBaQEugJHzN6x5OQpztfCdSjKN8pSAUbBfwHNNlCV+T0mYQWGlyDcuWIstWSqp0Xq9IKUt5EtKzGKm6yWQZLZhxx1hekGU1bmIcN0+eNOM34JMcU+cBQCejOcAQAM6qqUol24uIsVQsRcjKSxzb7hYR9PIVI6nmihP1K0v1iYk6wlR6rjJwcr5zw87xQvDwx4rwNSLptdzAls4P3tl5bGcjf3Rs/6cDFx6Eg3busX0Du0WlehM9gK6DGgD9tQgNBRTWa1Gj3GU5HHlsErUnEWq4QXb8/s1/9Fe3P3NwZN9wWcHYNolMrJRE9Fy7uPfMx/fkx9d5GBrezcD1pnfUfvKFY688kq80PFlYC6KYoXj9ycUbi0G1pOueyOKuTRyOG22uLhfENXGJcwwH5sYwLpXmc/aV7MzuLZXKlt0z2StuML9olhsD2exAo2wujqIFN0i0584unp1rJ3K3af3jx586Pt6v8czuvqEvrPULXtSneGuVZGhlNB+4nQs3eDbcgAshUAjbLrroG9Xge0E1eEeUVmjBznVX5tVNEoDa6iqJ3nfY7kVOtPCCWG3xJv+6yRdwOe7wFTvX3Mgrh9B1sAkAKDyyZv5Wu9uWdGmevNdjqIklCXNPGLmW8ERtxjktehM7hxFR14/MDXU9169ibCNeNdp65I6x4KzQ67KkS9QZLWXXPMdkKx1pegItiX5pbf5V6M7BRLtUaDbQOoGnndeDEF5necO8LEwJ13WuuUGkuvvuu1zr06szNtFrd1f73GqvHT6KFkS3PbpyE15GSyDV7cwFv4cvj8iy2dhdDbauL08H1eDkoYOPwtnAnWrvPDjD66DA7Uwd+7NP3T3l9kZFNWSrcgVHw6RoQSjsi6JZmQAGdESPaR775fFIu70srkiKImPGzLd/rWiKoinw4IM/WFOz829wljGEKWZxxTV/0nmJrxC9nc/xYpHmvaH4iWoAxfCwM2/nhBUuRVHnRk8uhXJHMRciVwRhXSPiEMYqOIpAx7PS5GtfkzKG64rYexUbiqIVtVdDWR1jeRlhy87Zkbve7DiKRUge/qJTcnvslb31vXDV/oOoWIHR22JJw6dwWIhtxgOz80b4FlNdfhshvv7ygp1LouryDVfULTfRF39n3/jF/0ffiFatyniMOCGgluzIIiG0cDNfvrxl27YtlwMu6Y0j584dgRe2nN7SubQimmk4Au90g0ffeDSsqP5VSJYHtwHQL3q/WoIXtn4PxbWH0RivFfhlTpMez+BiqSy4MVSEhw/8OPUNTCQiITer5Ipckb2eiyWsG1+RYpruaMh0dYTQ5ODg6MFQ3dun/lE3+BhPS5qVhydOc1WpYsvUN/THKYP8CYx1R5NH4qE9Xjl2+C8iW5wWtlj//rYIWYUyZ43ZK/jy1du2br3tqjANlI+cK2+uPgERjBmKaibpOXhp5NRI50pnSRjqDjjmBvc/WL9jSO+8jSklZpKSmAHroAfR+LRwrW2inpslfhaH/ZVU6VZYWSJqdV4uRrU65chmElTBMo6lJERTuY3F2TmsJfsnKlP3tjOfe6yyvTaUTlBE+hQlZ2Clb91Ead8H1ey2+rk//NMHixPD5cAxKESIUKagOIRxXq4l4puGlVjSdeNU2bB5un9+wU6X+goGUdScQTLUKqbdXU0nuy6QnVO33/uwnkj1pVI6ZkxSFZlRjkRRBeGs9l8h1gvbloqjgQsFi3w7qAbfFr1WUA2WRemJ5ngurdwUaOrfgqZRIiUEqHEk/dL3vxRUg6Pnj3IQ6FTnFxbm4VUBDNXa3r01eNXtkaW6Ogd0HN6x8kD1s8RzGaa0JJwrTHsHkSUzLX33u8SMKwgTjJGkyhLGN6SUFbNS0g2IbPQmRLa5/FOUVUwZQoiYouqSIi8vmLZtogWxBgjfjsfREuctJ/QaB6J6JAYRHX+vCGuyNButA5QSJjNKCYYLj5JMTLbT5NEFyBQ+X6JaTEEv40wsFsuQj3yEpO2YlSEvIxe9hSAmhFKZdNLw32Newupk4NtUlxlGyHRVSpcXLM+Lwe91GlbCjaEFSmPpyFazaInXXrxlbTtYxB8PQMfpNijYica3w4jLy1P4A578xhuii09Zr71mpSw9vKBbVFMVwi9xHuA/wH7Yz9tDQrzOryD1xMXOjzs/5hdlLMkSpJ1feYhE1hN4VYh85/vtcLokEhN3oZyXqDPUkpPm179uJmWLOkjCbwXV4C0+nEM/lCSn03EkyUxKqko6b3YE2cEpWMKMySTZo3lmbWLgUga7tCPyEIbd0stuIOHOU/AeEWmzhpaU4ZOdvxVh3OcwS1r+blANqBlYOmr2TsG9aJZqR7VPVBHVazAZuLOzfLnTvJw67WK3GixPCXbAeTvXM4l0ot4RilZH2IRPl+F/8ElQZ5EauqTTwITzlNIUWlANPsHAqeUF1Qh6p+JeqGc9Kg2iAsou8ZnpaTfI2aI6mp110c851L27JDgRXQ53AC6IOqMIgCMm19wnCT/hh7UAB7NhzCfbpWL5Lp9dMDOSqhBZukCwT3XGI0FGx4+bGabDL5gZU7vhI4KpfIPqLGPyllaSySuv+HwODVZOoqmVK7wCcnu61sCFAmI7efex1Q61u4uYiaIlS7oSiXZFZPd+asmYpxRFi5Lk6LbmskVJUnmQQMSrxCsikFRV4QeaYPaVS/ACHgV7Q32F3aO5ariPFukfDvU9V2R0OEgJhzzdniEUgQ+IyuVjCEJEiaxXcpRKM4eorDomRo7lBhajVNpcSEuU5iqWA6GUtmR6aMbOVfQYPMYYb6SpSmSibyiYlcKA3d4fIDmmUtlKS9TxUzFxdddQavM6e6BQMQsbdCltEYYtBwX72+n73cIGncRC3cBlPPreCvMTwqh4NHCF512cd6PogXN4FNwZ7Wkw0eR6boLvX9EidzypRJHZbAxL4eRrEjcb5WjLZXV7NZx/+Qm4F0FIYnolZxv5qWEkESxoRELIsSo5DsAEbt6MJYno+bTloB5jyDJ8kjHCsB7jpnDvbwwO9VsQIkJlRRLW0DcUFNf1PM9Xdw0N7TLzfX19upcPZLHMLeaQFTHleBnNwhOrU45W5N16LRRd+FbQdTSjvcu0IYSD86WjB1LrLd7s8sEqTm4fWr3yFSllYSrhx3O59aaNsRVXFHlrS5yJaTNcgIvRTidHiFv2NOHi8c8eP/5ZNjI9MjKNnuDHx/+FH4+ICY+MZtFVoIGK2B0tdYfq8f9jz6Z32POe/ZvdYe3+iffbxZlfmYI/QzHOpWC1qaiI0I56Azt6jR2NNuwGXOQwZqWkzNb+cjHsDDYEfeOBhmKhIHHT8eznI0jOx/hBrLO0fiSfjcFNIu5mYRVcha/zKHXeb+oHT3fHbLwOv4DyaI7v+4GEy5ifSHSrtxCSwhFfe22+meC0gkhgnj/PGGOmq8TZ+fPiizBsnj9vYka6V9FcUOU3xuNxvtly/rzJmKTp1OX3uVTXpPAqxy5wFYFwV6pxK3Ytht1Ld1MqvJe8771Y3Ptu771TEMA85PGyGi0wP31kevoIfJF/TgMIYuAKuoFiYBKAdavF5WgIQaOjY432JK7XRsXsYu0/Hijtbh4J1IJzAVc6Pb5+wGEQqopuppEkSQhCNWhP50XLxpgp2zJ8SWh0nx1j7OcBY+myo2OJ+mafCRGE1B7MM2aKB2SLBdXAjLE4z7clMd3j/70QVsGVcrkSgVCYZsJJk6TZGA2RdmysJsrjUY6zQmwU71k3y48DzIiQACOzr1cC+DehuJ37RLS9VGAsED7r6igpUvo3dAQ99twU/VdJzw5WiGwtLpYwqWh/vLExwTujpSKHRo4X8B9ufTm3VVA189PtQIUQM4p1M62o0YtFLL31Xou5gZkftCnEUNhW4mqZmIEeS+7o1kpZ5Eclc6vV42S+BT8a/kNCaXR0LCSlUY7WYucZ/5d4p6QpUlANmCV3vRwZlBi20mciDCXZcrOOCTEmsMaYKekq7YaBbMtdd/dYVtZYWlIkCCUtmSoWK47pEsYYBf8LOPnNNXicHZDBicMwFAXHl72FpAVjYkMQ2AYhWZD7tuVSXMYeU4JLcCd/yVwGIYY38IEOuj86frudH148eMROzxAXPZOc5SpzHPQUWWWLgydDnDyZ5CzXOBm5xc7IXfZxMDLEh5FJvuJiZPa9xofkTnInuZPcSXaT3WQ32Z3Z4mKxslhZ6ONk9T/7n/3P1rP1bD1bz9az9aJf9It+0S/6Rb/oF/3KTd7l16/6Vb/qV/2qv3nVzatuXnXzqs1us9vcae40d5o7zZ3mzpt37P9kv5M/AAB4nMVa227j1hVdadIW5UOfiz4ReigygHyZ9BJg3jSybAuRJUeyZ5q+6UJZzIikSlJ2/JIvyLf0U/pNxVl7H/KQoi4NWgSDsSnqXPZee+3bOQbwW/wDn+OzL34HtBaAPn+GP7YW+vwr/L71oz5/jlbrJ33+whnza/itf+nzb/CH1r/RRYINXpEixBNWyOHjS8zxBj6+wiXe4mu04eMKU6RIESCGjx4izJDilaPNrBwbvMMFLvCCADMkiDFFhhwh5viEc8yRIMIF3qANDy8IkWMFH2MEyBAgxTMCLODjmrONJENMESHgqARb5DriBglnm7XP4cHDAz9lldkTJFgixwtlN6vIiDXnGU0yXW+LGAvK4HPdgLP7GMDHCBvVulx5UFnB4POBszOEHOPjLc7535Wsuq+VZk4LhCrJDAHWSPDCVaeUy46cYo0MCZ+eMUWINaaYYc3VSkSnlLWDb/mc4x28mo0yzGnxDXJkOKfca5wjQYonXGCEawyIq4ezX+Sf5+B/jx6G1GmEIR6Ifx9dvp2gtxd9H2dk8d84NyBjt+TCq7L7El//ghp6uMcYPXRwh/cYoKdsMdZ8QqL29snikpfH+Wh8Uiz4hgwQ7udkjnhkhC25kytzjN3XWJBDxg88/nxWLm7og7KTyGI4u1b2mblTrvrM1ZaFVBukSPA9AszJs7YjxRYbbDg3d3Qr584ptaxr3nkIsOT3Kdeykkwxx5TSRsSg9BnjbTGesKX35PqtRKGIHh/ybaCS2Xkiocj+rHiITy0pU1CM9YiN2GJJFAxOguYnem1MdCVOrRz9jPwRpuThjCtmWKmlFhW/jwpJAn0TU7opcYiV9yv6shtVE8U0pX97DrOEGRJNJNJkjgV2Y6Mrs2AjEm91RFtZtcVCo1ib2iX8vCwim8VMdBSbmBg0c+K6RXhNZKYaNRPa0X4WSV8dZsfU1mdsXGsUfS1GRpRzTQQNFr4i4TmatRXZOdaqh90x5kqSG0JG3ZLp1tIyf87RFp2Z5pR1gUjAnGk+LYp3h9EQxC64i6udG+lFvmwn01X5u1A0psTJzkprmddjzo74dhfdbcGI2UmYlEhXOWS53TQ/Y22wIisl/qQOtlYSQTilVQOyYjeLWx1LPzAIvNJfbeyoct1lhln7n4wcKe1mo99SbbHrEzJuqv5Zryea8/8CiWJtNZsyKhr2e7puycAEc2wdWcoIabXPCt7W46nEy7K6CfncbAGJFlfo4Rp9DNHHA/rMvBN4aB2or1qKw1LjjsXGSmO0LnPIkjWH6L9rS9eD/YYq1cOt+oPZ60tkzHWn4W4ZONc9U403EZ8/Fd6XaaYysduyI3Rit1eJGYH64RYpd3M1bGtECNWDq/WX6xNVK5f5T6zSOqla3mcHyyXXyzN6xLwWqV3NzeclWVbyx9Oqtdo3ZCpx6TFiFyv7SEeHlGC9U7cd44+tOqSesLWesOlQ1S85f8MRgROHMtY5zbH3GP/8Bv5ZPe92ct9peh7ONpHWOVa2KTNJ6fEJWbZQT8r1mzarlFTtOdNKKKemdu4Z6+RqZWHjRVnDJNpnyOgyvi5rFtpF2h3jHWVBu9BwzowV69inIv5GxKWMaTLaVpP1GHiIGRZ3j/K+MEvHzJopZ1keW8t2iNuKO51ixYyaxkUeCwptguKdZOonrR+j4n1Onq9Yp86JlKnvUlpPfDHRn2WG26gsiWM1sUrcwPGqd+3H6Vx7lR7GuEMfE/ZmI/Zkf6J3mOerWqa4pywR/avszCR+iryBWk50j1WudqXStv2GVMdP2m1Xka5qnWDGOBQSOYO3x+rdRqw6Z/frXe60Lfp8W+m+al0ia0rFGzgSltVetRp+pUfuq/rcPkSq1vWBWlry3e635YnCbvdotfUatZUYYTu2OkOWGn8TVqDiZcKthfZSCXPsO/LlLTPykNWGW4Md98pYmV2NMaH6fKj7SW271RjSFHnamqH9hpgjOxyL1Jlar9qpVbsMkcvYaqme8hU1//l7ns7Qumz1ruP/1V+0j3QYAfvyleMhXhGFxDPdnlNOEZ6LDFLPtFIdh1pVlX16c31X1vGZrlj2ZfWKbUFZXX7a2ifXfc5oO2GVxOQftBNwa7sVazYz40yr8oVzMrfSNzZPGLwtM0sMNorohrrbs5lIkZSc0bR6xGwv73I9pwjJxwV3s9a0+1kNRIqZ8lPOxNyafH/3nSiy1X2q/a/U8qFW1s8c+dJYW221nhXf+bNGjeQET/k5frJV2e2c/fW0V9TTbnch6GTU8Af2aiGr55xIS3bO9UxocyADVnNeHZM5rSP9+aaIsJLLjtWi1U5F1hDfr1bNcXHKslE9goaaW9gYOQyxGMfF2bxU0pviPCHeU2FYS9se8y9E1Z4RxDW0q7Y9rQKvdrl+pV5rXnd/PrRncpKDq2cP5VmIe1oYcUxQVHoL7ptpHZNqzS6nGjntExQx1jvK9rZyzkS6jZOdp7xfiZmVJe4/VRi+W/3Jek14HGeXneVG4f1Ip5Vs4p49HPMer9F7hDd/rfDmcP22Wx2JVE2VU/vkLshk1ogsKDmxL8uKP4R6xvF64imFWwmWO7ks3N+7HjsH25cv/f/63Mv7n5977XZRh8+9vMZzr2O9zEPRywzRKbqWQ3d1M9bESXFuEvMGZe1Y6RkJayGfjNrXIddrnXrtbM9dvQIbye/2VM50X10M0EEfd9TCSH3LW7DyfmzCU/4HfESHN0w+5/m8bxrhA/o837uCz552ot+3yLqP7ONuMcIj15I1xuhw7e/0BsHnZ/PpG6J4RZ/o4e96pzXhqiOMufYd7nln1+M4nzOMFo/UaIgb+Hiv+w0xKu747iiLSPqAkbNrVao+dxTJPMWli1v9toP3vEvsU/42kTLPw0LOa5W0Q4zMyg+8YXwk0mO+fcQY9xjpjWOHOou0Q+pwjbHq0qMEZmdPseryFvM7jrjBLR4oxT25JyPb1NDoc8X5Ztdv+FYkG6mVx6xZ7CrniqXIYe7lP+h6hgNG/wHvemSu1yCHT0sPuOuYVugp9h29k3TREexL/slfBnQo701hg7q8djXXBl4jB+wON9SiRzwG3GXC84cuVxoUHDIzx3z/4PBK2C2WHzgYdvVsoodv8agjZD2vpoX4gZG/1EJw7ujPbhE1fMfGQ7Vht7DoiFzaReUjPa7HUR3aY6IoeGTSSNG1Xih7WE9/VBaOCsmq+FpvseNOiRCylt3bq1jwirfUA5VwUqBxfN1zYpvqGbKN011G/IzV95PeRacHxsmN/uVO/X/Jv1A55+9LylldQef/B4Yh6u8AAHicY2BmAIP/5xmSGLAAADMIAjQAAAAAAf//AAI=") format("woff"); }
+@page { size: letter; margin: 0; }
+:root {
+  --pw: 215.9mm; --ph: 279.4mm;            /* US Letter. A4: 210mm x 297mm and @page size: A4 */
+  --ml: 16mm; --mr: 16mm; --mt: 11mm; --mb: 10mm;
+  --ink: #000; --paper: #fff;
+  --serif: "Iowan Old Style", "Courier Prime", Georgia, "DejaVu Serif", serif;
+  --mono: "Letter Gothic", "Letter Gothic Std", "Courier New", "DejaVu Sans Mono", monospace;
+  --draft: "Drafting Caps", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--paper); color: var(--ink); }
+body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { position: relative; width: var(--pw); height: var(--ph); overflow: hidden;
+  padding: var(--mt) var(--mr) var(--mb) var(--ml);
+  font-family: var(--serif); font-size: 3.05mm; line-height: 1.42; letter-spacing: 0.035em; }
+
+/* running head */
+.head { text-align: center; padding-bottom: 1.6mm; border-bottom: 0.5mm solid var(--ink); }
+.head .doc { font-weight: 700; letter-spacing: 0.08em; font-size: 3.1mm; }
+.head .book { font-weight: 700; letter-spacing: 0.08em; font-size: 3.1mm; }
+.head .kind { margin-top: 1.4mm; letter-spacing: 0.12em; font-size: 2.9mm; }
+
+.sect { text-align: center; margin: 4.5mm 0 3mm; letter-spacing: 0.12em; font-size: 3.05mm; line-height: 1.6; }
+
+/* numbered paragraphs */
+.para { position: relative; margin-bottom: 2.4mm; }
+.para > .num { position: absolute; left: 0; top: 0; width: 22mm; }
+.para > .hd { margin-left: 22mm; text-transform: uppercase; letter-spacing: 0.06em; }
+.para > .body { margin-left: 22mm; text-indent: 7mm; text-align: justify; hyphens: auto; }
+.para.sub > .hd { text-transform: none; text-decoration: underline; text-underline-offset: 0.6mm; }
+.para.sub > .body { text-indent: 0; }
+.chg::before { content: ""; position: absolute; left: -6mm; top: 0.4mm; bottom: 0.4mm; width: 0.9mm; background: var(--ink); }
+sub, sup { font-size: 70%; line-height: 0; letter-spacing: 0; }
+
+/* figures */
+figure { margin: 2.6mm 0 3.2mm; position: relative; }
+figure svg { display: block; width: 100%; height: auto; overflow: visible; }
+figcaption { text-align: center; margin-top: 1.2mm; }
+figure .code { position: absolute; right: 0; bottom: 0; font-family: var(--draft); font-size: 2.4mm; letter-spacing: 0.04em; }
+
+/* drawing classes (all lengths in drawing mm) */
+svg .ln   { fill: none; stroke: #000; stroke-width: 0.3; stroke-linejoin: round; stroke-linecap: round; }
+svg .hvy  { fill: none; stroke: #000; stroke-width: 0.5; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: #000; stroke-width: 0.18; }
+svg .dash { fill: none; stroke: #000; stroke-width: 0.25; stroke-dasharray: 1.4 0.9; }
+svg .hid  { fill: none; stroke: #000; stroke-width: 0.22; stroke-dasharray: 0.6 0.6; }
+svg .ctr  { fill: none; stroke: #000; stroke-width: 0.16; stroke-dasharray: 4 0.8 0.8 0.8; }
+svg .lead { fill: none; stroke: #000; stroke-width: 0.2; marker-end: url(#nh-arrow); }
+svg .dim  { fill: none; stroke: #000; stroke-width: 0.16; marker-start: url(#nh-arrow-s); marker-end: url(#nh-arrow); }
+svg .flow { fill: none; stroke: #000; stroke-width: 0.35; marker-end: url(#nh-arrow); }
+svg .wht  { fill: #fff; } svg .blk { fill: #000; }
+svg .hatch { fill: url(#nh-hatch); } svg .dots { fill: url(#nh-dots); } svg .xhatch { fill: url(#nh-xhatch); }
+svg text { font-family: var(--draft); font-size: 2.3px; letter-spacing: 0.05px; fill: #000; text-transform: uppercase; }
+svg text.sm { font-size: 2.05px; } svg text.lg { font-size: 2.6px; } svg text.ttl { font-size: 2.9px; }
+svg text.mid { text-anchor: middle; } svg text.end { text-anchor: end; }
+
+/* lower band */
+.band { display: grid; grid-template-columns: 1.08fr 1fr; column-gap: 7mm; align-items: start; margin-top: 1mm; }
+table.data { width: 100%; border-collapse: collapse; font-size: 2.85mm; line-height: 1.3; }
+table.data caption { caption-side: top; text-align: center; padding-bottom: 1mm; }
+table.data th, table.data td { border: 0.22mm solid var(--ink); padding: 0.55mm 1.6mm; text-align: left; font-weight: 400; vertical-align: top; }
+table.data th { text-align: center; }
+
+.notice { margin: 0 0 3mm; font-size: 2.95mm; }
+.notice .t { text-align: center; font-weight: 700; letter-spacing: 0.3em; text-decoration: underline; text-underline-offset: 0.7mm; margin-bottom: 0.8mm; }
+.notice.note .t { font-weight: 400; }
+
+.card { border: 0.3mm solid var(--ink); font-family: var(--mono); font-size: 2.75mm; line-height: 1.38; letter-spacing: 0; text-transform: uppercase; }
+.card .ct { display: flex; justify-content: space-between; background: var(--ink); color: var(--paper); font-weight: 700; padding: 0.5mm 1.8mm; }
+.card ol { list-style: none; padding: 1.2mm 1.8mm 1.4mm; counter-reset: s; }
+.card li { counter-increment: s; padding-left: 4.2mm; position: relative; white-space: pre-wrap; }
+.card li::before { content: counter(s); position: absolute; left: 0; }
+.card li.v { counter-increment: none; padding-left: 7mm; }
+.card li.v::before { content: "\221A"; left: 4.2mm; }
+
+/* thumb tab */
+.tab { position: absolute; right: 0; width: 9mm; background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center; font-family: var(--draft); font-size: 2.7mm; letter-spacing: 0.12em; }
+
+/* footer */
+.foot { position: absolute; left: var(--ml); right: var(--mr); bottom: var(--mb); }
+.foot .rule { border-top: 0.5mm solid var(--ink); padding-top: 1.4mm; text-align: center; letter-spacing: 0.12em; font-size: 2.95mm; }
+.foot .row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 3mm; font-size: 2.95mm; }
+.foot .f { white-space: nowrap; }
+.foot .f u { display: inline-block; min-width: 26mm; text-decoration: none; border-bottom: 0.22mm solid var(--ink); text-align: center; padding: 0 1.5mm; margin-left: 2mm; }
+
+@media screen { body { background: #fff; } }
+</style>
+</head>
+<body>
+<div class="page" id="page">
+  <div class="head">
+    <div class="doc">IK4A-02-BLOCK I-(1)</div>
+    <div class="book">INKOS OPERATIONS HANDBOOK</div>
+    <div class="kind">SYSTEMS DATA</div>
+  </div>
+  <div class="sect">SECTION 2  ·  SUBSECTION 2.1 (CONTINUED)<br>SOFTWARE LOAD, MALFUNCTION AND ROLLBACK</div>
+
+  <div class="para"><div class="num">2.1.4</div><div class="hd">Prerequisites.</div>
+    <div class="body">A microSD card formatted FAT32, a USB-C card reader for the iPhone, a USB charger and the X4 charged. No full-flash backup can be made from an iPhone; the stock file in 2.1.6 is the only restore point, so keep a copy in Files before the first load.</div></div>
+
+  <div class="para"><div class="num">2.1.5</div><div class="hd">Load Decision Sequence.</div>
+    <div class="body">The proof load separates the route from the code: if the CrossPoint release file will not load, InkOS will not either, and the fault is the unit or the route (figure 2.1-3).</div></div>
+
+  <figure><svg viewBox="0 0 183.9 53" xmlns="http://www.w3.org/2000/svg"><defs>
+        <marker id="nh-arrow" viewBox="0 0 10 4" refX="10" refY="2" markerUnits="userSpaceOnUse" markerWidth="2.1" markerHeight="0.84" orient="auto"><path d="M0,0 L10,2 L0,4 Z" fill="#000"/></marker>
+        <marker id="nh-arrow-s" viewBox="0 0 10 4" refX="0" refY="2" markerUnits="userSpaceOnUse" markerWidth="2.1" markerHeight="0.84" orient="auto"><path d="M10,0 L0,2 L10,4 Z" fill="#000"/></marker>
+        <marker id="nh-dot" viewBox="0 0 2 2" refX="1" refY="1" markerUnits="userSpaceOnUse" markerWidth="0.9" markerHeight="0.9"><circle cx="1" cy="1" r="1" fill="#000"/></marker>
+        <pattern id="nh-hatch" width="1.2" height="1.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="1.2" stroke="#000" stroke-width="0.16"/></pattern>
+        <pattern id="nh-xhatch" width="1.4" height="1.4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0,0 V1.4 M0,0 H1.4" stroke="#000" stroke-width="0.14"/></pattern>
+        <pattern id="nh-dots" width="0.9" height="0.9" patternUnits="userSpaceOnUse"><circle cx="0.45" cy="0.45" r="0.13" fill="#000"/></pattern>
+      </defs><rect class="ln" x="1" y="7" width="24" height="14" rx="0.6"/><text class="mid sm" x="13.0" y="11.6">PROOF LOAD</text><text class="mid sm" x="13.0" y="14.8">CROSSPOINT</text><text class="mid sm" x="13.0" y="18.0">RELEASE FILE</text><line class="flow" x1="25" y1="14" x2="30" y2="14"/><path class="ln wht" d="M 30.0 14 L 42 7.0 L 54.0 14 L 42 21.0 Z"/><text class="mid sm" x="42" y="13.2">SCREEN</text><text class="mid sm" x="42" y="16.2">CHANGED?</text><line class="flow" x1="54" y1="14" x2="61" y2="14"/><text class="sm" x="55" y="12.6">YES</text><rect class="ln" x="61" y="7" width="24" height="14" rx="0.6"/><text class="mid sm" x="73.0" y="13.2">LOAD INKOS</text><text class="mid sm" x="73.0" y="16.4">UPDATE.BIN</text><line class="flow" x1="85" y1="14" x2="90" y2="14"/><path class="ln wht" d="M 90.0 14 L 102 7.0 L 114.0 14 L 102 21.0 Z"/><text class="mid sm" x="102" y="13.2">"INKOS"</text><text class="mid sm" x="102" y="16.2">MENU?</text><line class="flow" x1="114" y1="14" x2="121" y2="14"/><text class="sm" x="115" y="12.6">YES</text><rect class="ln" x="121" y="7" width="24" height="14" rx="0.6"/><text class="mid sm" x="133.0" y="13.2">DIAGNOSTICS</text><text class="mid sm" x="133.0" y="16.4">PRESS ALL 6</text><line class="flow" x1="145" y1="14" x2="150" y2="14"/><path class="ln wht" d="M 150.0 14 L 162 7.0 L 174.0 14 L 162 21.0 Z"/><text class="mid sm" x="162" y="13.2">ALL IN</text><text class="mid sm" x="162" y="16.2">BAND?</text><line class="flow" x1="174" y1="14" x2="174" y2="35"/><text class="sm" x="175.4" y="22">YES</text><rect class="hvy" x="166" y="35" width="17" height="8" rx="0.6"/><text class="mid sm" x="174.5" y="39.8">LOADED</text><line class="flow" x1="42" y1="21" x2="42" y2="35"/><text class="sm" x="43.4" y="28.4">NO</text><rect class="hvy" x="25" y="35" width="34" height="16" rx="0.6"/><text class="mid sm" x="42.0" y="39.0">STOP. RETRY ONCE,</text><text class="mid sm" x="42.0" y="42.2">THEN SUSPECT A</text><text class="mid sm" x="42.0" y="45.4">USB-LOCKED UNIT;</text><text class="mid sm" x="42.0" y="48.6">DO NOT LOAD INKOS</text><circle class="ln wht" cx="25" cy="35" r="2.2"/><text class="mid sm" x="25" y="35.75">A</text><line class="flow" x1="102" y1="21" x2="102" y2="35"/><text class="sm" x="103.4" y="28.4">NO</text><rect class="hvy" x="85" y="35" width="34" height="16" rx="0.6"/><text class="mid sm" x="102.0" y="39.0">ROLL BACK TO STOCK.</text><text class="mid sm" x="102.0" y="42.2">PHOTO OF SCREEN →</text><text class="mid sm" x="102.0" y="45.4">DISPLAY DRIVER</text><text class="mid sm" x="102.0" y="48.6">CHECK (DISPLAY.H)</text><circle class="ln wht" cx="85" cy="35" r="2.2"/><text class="mid sm" x="85" y="35.75">B</text><path class="ln" d="M 162 21 V 27.5 H 146"/><line class="flow" x1="146" y1="27.5" x2="146" y2="35"/><text class="sm" x="163.4" y="25.6">NO</text><rect class="hvy" x="129" y="35" width="34" height="16" rx="0.6"/><text class="mid sm" x="146.0" y="39.0">NOTE RAW COUNT.</text><text class="mid sm" x="146.0" y="42.2">EDIT BOARD.H ON</text><text class="mid sm" x="146.0" y="45.4">GITHUB.COM, WAIT</text><text class="mid sm" x="146.0" y="48.6">FOR BUILD, RELOAD</text><circle class="ln wht" cx="129" cy="35" r="2.2"/><text class="mid sm" x="129" y="35.75">C</text></svg><figcaption>Figure 2.1-3.   Load Decision Sequence and Malfunction Branches</figcaption><div class="code">IKS-503A</div></figure>
+
+  <div class="para sub chg"><div class="num">2.1.5.1</div><div class="hd">Unverified Elements.</div>
+    <div class="body">The SD loader, the load keys and the SSD1677 controller come from community reports, not from this unit. Treat the first load as a test, not a routine.</div></div>
+
+  <figure><svg viewBox="0 0 183.9 33.5" xmlns="http://www.w3.org/2000/svg"><text class="ttl" x="2" y="4">CORRECT</text><path class="hvy" d="M 2 7 h 9 l 3 3 v 15 h -12 z"/><rect class="dots" x="4" y="8.5" width="6" height="3"/><text class="sm" x="16" y="10.6">MICROSD  (FAT32)</text><path class="thin" d="M 18 11.8 V 15.2 H 21"/><text x="22" y="16.0">/UPDATE.BIN</text><text class="sm" x="48" y="16.0">406 KB, AT THE TOP LEVEL</text><path class="ln" d="M 43.5 14.6 l 1 1.2 l 2.2 -2.8"/><text class="ttl" x="96" y="4">INCORRECT</text><path class="hvy" d="M 96 7 h 9 l 3 3 v 15 h -12 z"/><rect class="dots" x="98" y="8.5" width="6" height="3"/><text class="sm" x="110" y="10.6">MICROSD  (FAT32)</text><path class="thin" d="M 112 11.8 V 15.2 H 115"/><text x="116" y="16.0">/DOWNLOADS/UPDATE.BIN</text><text class="sm" x="158" y="16.0">IN A FOLDER</text><path class="ln" d="M 153.5 13.8 l 2.4 2.4 M 153.5 16.2 l 2.4 -2.4"/><path class="thin" d="M 112 11.8 V 20.4 H 115"/><text x="116" y="21.2">/UPDATE-1.BIN</text><text class="sm" x="158" y="21.2">RENAMED BY SAFARI</text><path class="ln" d="M 153.5 19.0 l 2.4 2.4 M 153.5 21.4 l 2.4 -2.4"/><path class="thin" d="M 112 11.8 V 25.599999999999998 H 115"/><text x="116" y="26.4">/UPDATE.BIN.ZIP</text><text class="sm" x="158" y="26.4">STILL ZIPPED</text><path class="ln" d="M 153.5 24.2 l 2.4 2.4 M 153.5 26.599999999999998 l 2.4 -2.4"/><path class="thin" d="M 112 11.8 V 30.8 H 115"/><text x="116" y="31.6">/UPDATE.BIN.TXT</text><text class="sm" x="158" y="31.6">WRONG EXTENSION</text><path class="ln" d="M 153.5 29.400000000000002 l 2.4 2.4 M 153.5 31.8 l 2.4 -2.4"/></svg><figcaption>Figure 2.1-4.   Card Root, Correct and Incorrect Placement</figcaption><div class="code">IKS-504A</div></figure>
+
+  <div class="band" id="band">
+    <div>
+      <div class="para" style="margin-bottom:1mm"><div class="num">2.1.6</div><div class="hd">Malfunction Data.</div></div>
+      <table class="data">
+        <caption>Table 2.1-2.  Load Malfunctions</caption>
+        <tr><th>Symptom</th><th>Action</th></tr>
+        <tr><td>No reaction to POWER + UP</td><td>Check name, root, FAT32, USB; retry once (branch A)</td></tr>
+        <tr><td>Name ends in -1</td><td>Delete old; rename (fig 2.1-4)</td></tr>
+        <tr><td>Blank screen</td><td>Roll back; photo (branch B)</td></tr>
+        <tr><td>Button misreads</td><td>Note the raw count (branch C)</td></tr>
+        <tr><td>Clock shows ~</td><td>Power was lost; set date and time</td></tr>
+        <tr><td>GitHub run failed</td><td>LATEST holds the prior build</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="notice note"><div class="t">NOTE</div>POWER is not shown in DIAGNOSTICS. Verify it apart: a short press forces one full refresh.</div>
+      <div class="card"><div class="ct"><span>ROLLBACK - STOCK</span><span>OPR</span></div>
+        <ol>
+          <li>SAFARI - CROSSPOINTREADER.COM/DEBUG</li>
+          <li>STOCK FIRMWARE - DOWNLOAD</li>
+          <li>FILES - RENAME UPDATE.BIN</li>
+          <li>FILES - COPY TO CARD ROOT</li>
+          <li>CARD IN, USB ON - POWER + UP HOLD</li>
+          <li class="v">STOCK READER SCREEN</li>
+        </ol></div>
+    </div>
+  </div>
+
+  <div class="tab" style="top: 112mm; height: 22mm;">LOAD</div>
+  <div class="foot" id="foot">
+    <div class="rule">SOFTWARE LOAD</div>
+    <div class="row">
+      <span class="f">Mission<u>PERSONAL</u></span>
+      <span class="f">Basic Date<u>12 November 2026</u></span>
+      <span class="f">Change Date<u>-</u></span>
+      <span class="f">Page<u>2.1-2</u></span>
+    </div>
+  </div>
+</div>
+<script>
+/* fit check: room (mm) between the lowest content and the footer. Negative = overflow. */
+(async () => {
+  try { await document.fonts.ready; } catch (e) {}
+  const pg = document.getElementById('page'), ft = document.getElementById('foot');
+  const pxPerMm = 96 / 25.4;
+  let low = 0;
+  for (const el of pg.children) {
+    if (el === ft || el.classList.contains('tab')) continue;
+    low = Math.max(low, el.getBoundingClientRect().bottom);
+  }
+  const room = (ft.getBoundingClientRect().top - low) / pxPerMm;
+  document.documentElement.setAttribute('data-fit', room.toFixed(1));
+})();
+</script>
+</body>
+</html>

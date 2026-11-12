@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>InkOS Software Load</title>
+<style>
+/* Drafting Caps: subset of Routed Gothic (c) 2017 Darren Embry, SIL OFL 1.1, renamed per OFL clause 3. */
+@font-face { font-family: "Drafting Caps"; src: url("data:font/woff;base64,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") format("woff"); }
+@page { size: letter; margin: 0; }
+:root {
+  --pw: 215.9mm; --ph: 279.4mm;            /* US Letter. A4: 210mm x 297mm and @page size: A4 */
+  --ml: 16mm; --mr: 16mm; --mt: 11mm; --mb: 10mm;
+  --ink: #000; --paper: #fff;
+  --serif: "Iowan Old Style", "Courier Prime", Georgia, "DejaVu Serif", serif;
+  --mono: "Letter Gothic", "Letter Gothic Std", "Courier New", "DejaVu Sans Mono", monospace;
+  --draft: "Drafting Caps", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--paper); color: var(--ink); }
+body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { position: relative; width: var(--pw); height: var(--ph); overflow: hidden;
+  padding: var(--mt) var(--mr) var(--mb) var(--ml);
+  font-family: var(--serif); font-size: 3.05mm; line-height: 1.42; letter-spacing: 0.035em; }
+
+/* running head */
+.head { text-align: center; padding-bottom: 1.6mm; border-bottom: 0.5mm solid var(--ink); }
+.head .doc { font-weight: 700; letter-spacing: 0.08em; font-size: 3.1mm; }
+.head .book { font-weight: 700; letter-spacing: 0.08em; font-size: 3.1mm; }
+.head .kind { margin-top: 1.4mm; letter-spacing: 0.12em; font-size: 2.9mm; }
+
+.sect { text-align: center; margin: 4.5mm 0 3mm; letter-spacing: 0.12em; font-size: 3.05mm; line-height: 1.6; }
+
+/* numbered paragraphs */
+.para { position: relative; margin-bottom: 2.4mm; }
+.para > .num { position: absolute; left: 0; top: 0; width: 22mm; }
+.para > .hd { margin-left: 22mm; text-transform: uppercase; letter-spacing: 0.06em; }
+.para > .body { margin-left: 22mm; text-indent: 7mm; text-align: justify; hyphens: auto; }
+.para.sub > .hd { text-transform: none; text-decoration: underline; text-underline-offset: 0.6mm; }
+.para.sub > .body { text-indent: 0; }
+.chg::before { content: ""; position: absolute; left: -6mm; top: 0.4mm; bottom: 0.4mm; width: 0.9mm; background: var(--ink); }
+sub, sup { font-size: 70%; line-height: 0; letter-spacing: 0; }
+
+/* figures */
+figure { margin: 2.6mm 0 3.2mm; position: relative; }
+figure svg { display: block; width: 100%; height: auto; overflow: visible; }
+figcaption { text-align: center; margin-top: 1.2mm; }
+figure .code { position: absolute; right: 0; bottom: 0; font-family: var(--draft); font-size: 2.4mm; letter-spacing: 0.04em; }
+
+/* drawing classes (all lengths in drawing mm) */
+svg .ln   { fill: none; stroke: #000; stroke-width: 0.3; stroke-linejoin: round; stroke-linecap: round; }
+svg .hvy  { fill: none; stroke: #000; stroke-width: 0.5; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: #000; stroke-width: 0.18; }
+svg .dash { fill: none; stroke: #000; stroke-width: 0.25; stroke-dasharray: 1.4 0.9; }
+svg .hid  { fill: none; stroke: #000; stroke-width: 0.22; stroke-dasharray: 0.6 0.6; }
+svg .ctr  { fill: none; stroke: #000; stroke-width: 0.16; stroke-dasharray: 4 0.8 0.8 0.8; }
+svg .lead { fill: none; stroke: #000; stroke-width: 0.2; marker-end: url(#nh-arrow); }
+svg .dim  { fill: none; stroke: #000; stroke-width: 0.16; marker-start: url(#nh-arrow-s); marker-end: url(#nh-arrow); }
+svg .flow { fill: none; stroke: #000; stroke-width: 0.35; marker-end: url(#nh-arrow); }
+svg .wht  { fill: #fff; } svg .blk { fill: #000; }
+svg .hatch { fill: url(#nh-hatch); } svg .dots { fill: url(#nh-dots); } svg .xhatch { fill: url(#nh-xhatch); }
+svg text { font-family: var(--draft); font-size: 2.3px; letter-spacing: 0.05px; fill: #000; text-transform: uppercase; }
+svg text.sm { font-size: 2.05px; } svg text.lg { font-size: 2.6px; } svg text.ttl { font-size: 2.9px; }
+svg text.mid { text-anchor: middle; } svg text.end { text-anchor: end; }
+
+/* lower band */
+.band { display: grid; grid-template-columns: 1.08fr 1fr; column-gap: 7mm; align-items: start; margin-top: 1mm; }
+table.data { width: 100%; border-collapse: collapse; font-size: 2.85mm; line-height: 1.3; }
+table.data caption { caption-side: top; text-align: center; padding-bottom: 1mm; }
+table.data th, table.data td { border: 0.22mm solid var(--ink); padding: 0.55mm 1.6mm; text-align: left; font-weight: 400; vertical-align: top; }
+table.data th { text-align: center; }
+
+.notice { margin: 0 0 3mm; font-size: 2.95mm; }
+.notice .t { text-align: center; font-weight: 700; letter-spacing: 0.3em; text-decoration: underline; text-underline-offset: 0.7mm; margin-bottom: 0.8mm; }
+.notice.note .t { font-weight: 400; }
+
+.card { border: 0.3mm solid var(--ink); font-family: var(--mono); font-size: 2.75mm; line-height: 1.38; letter-spacing: 0; text-transform: uppercase; }
+.card .ct { display: flex; justify-content: space-between; background: var(--ink); color: var(--paper); font-weight: 700; padding: 0.5mm 1.8mm; }
+.card ol { list-style: none; padding: 1.2mm 1.8mm 1.4mm; counter-reset: s; }
+.card li { counter-increment: s; padding-left: 4.2mm; position: relative; white-space: pre-wrap; }
+.card li::before { content: counter(s); position: absolute; left: 0; }
+.card li.v { counter-increment: none; padding-left: 7mm; }
+.card li.v::before { content: "\221A"; left: 4.2mm; }
+
+/* thumb tab */
+.tab { position: absolute; right: 0; width: 9mm; background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center; font-family: var(--draft); font-size: 2.7mm; letter-spacing: 0.12em; }
+
+/* footer */
+.foot { position: absolute; left: var(--ml); right: var(--mr); bottom: var(--mb); }
+.foot .rule { border-top: 0.5mm solid var(--ink); padding-top: 1.4mm; text-align: center; letter-spacing: 0.12em; font-size: 2.95mm; }
+.foot .row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 3mm; font-size: 2.95mm; }
+.foot .f { white-space: nowrap; }
+.foot .f u { display: inline-block; min-width: 26mm; text-decoration: none; border-bottom: 0.22mm solid var(--ink); text-align: center; padding: 0 1.5mm; margin-left: 2mm; }
+
+@media screen { body { background: #fff; } }
+</style>
+</head>
+<body>
+<div class="page" id="page">
+  <div class="head">
+    <div class="doc">IK4A-02-BLOCK I-(1)</div>
+    <div class="book">INKOS OPERATIONS HANDBOOK</div>
+    <div class="kind">SYSTEMS DATA</div>
+  </div>
+  <div class="sect">SECTION 2  ·  SUBSECTION 2.1<br>SOFTWARE LOAD, SD CARD ROUTE</div>
+
+  <div class="para"><div class="num">2.1.1</div><div class="hd">Introduction.</div>
+    <div class="body">InkOS loads onto the X4 with an iPhone only: the cloud builds the image, the phone carries it to the microSD card, and the bootloader is reported to write it. The file must be named update.bin, in the card root (figure 2.1-1).</div></div>
+
+  <figure><svg viewBox="0 0 183.9 50" xmlns="http://www.w3.org/2000/svg"><defs>
+        <marker id="nh-arrow" viewBox="0 0 10 4" refX="10" refY="2" markerUnits="userSpaceOnUse" markerWidth="2.1" markerHeight="0.84" orient="auto"><path d="M0,0 L10,2 L0,4 Z" fill="#000"/></marker>
+        <marker id="nh-arrow-s" viewBox="0 0 10 4" refX="0" refY="2" markerUnits="userSpaceOnUse" markerWidth="2.1" markerHeight="0.84" orient="auto"><path d="M10,0 L0,2 L10,4 Z" fill="#000"/></marker>
+        <marker id="nh-dot" viewBox="0 0 2 2" refX="1" refY="1" markerUnits="userSpaceOnUse" markerWidth="0.9" markerHeight="0.9"><circle cx="1" cy="1" r="1" fill="#000"/></marker>
+        <pattern id="nh-hatch" width="1.2" height="1.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="1.2" stroke="#000" stroke-width="0.16"/></pattern>
+        <pattern id="nh-xhatch" width="1.4" height="1.4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0,0 V1.4 M0,0 H1.4" stroke="#000" stroke-width="0.14"/></pattern>
+        <pattern id="nh-dots" width="0.9" height="0.9" patternUnits="userSpaceOnUse"><circle cx="0.45" cy="0.45" r="0.13" fill="#000"/></pattern>
+      </defs><rect class="ln" x="2" y="14" width="28" height="12" rx="0.6"/><text class="mid" x="16.0" y="19.3">GITHUB ACTIONS</text><text class="mid sm" x="16.0" y="22.5">CLOUD BUILD</text><line class="flow" x1="30" y1="20" x2="38" y2="20"/><rect class="ln" x="38" y="14" width="26" height="12" rx="0.6"/><text class="mid" x="51.0" y="19.3">IPHONE</text><text class="mid sm" x="51.0" y="22.5">SAFARI → FILES</text><line class="flow" x1="64" y1="20" x2="72" y2="20"/><rect class="ln" x="72" y="14" width="22" height="12" rx="0.6"/><text class="mid" x="83.0" y="19.3">READER</text><text class="mid sm" x="83.0" y="22.5">USB-C, MICROSD</text><line class="flow" x1="94" y1="20" x2="103.6" y2="20"/><rect class="hvy" x="104" y="4" width="78" height="40" rx="1.2"/><text class="ttl" x="106.5" y="8.6">X4  (ESP32-C3)</text><rect class="ln" x="108" y="14" width="18" height="12" rx="0.6"/><text class="mid" x="117.0" y="19.3">SD SLOT</text><text class="mid sm" x="117.0" y="22.5">/UPDATE.BIN</text><line class="flow" x1="126" y1="20" x2="131" y2="20"/><rect class="ln" x="131" y="14" width="22" height="12" rx="0.6"/><text class="mid" x="142.0" y="19.3">BOOTLOADER</text><text class="mid sm" x="142.0" y="22.5">SD LOADER *</text><line class="flow" x1="153" y1="20" x2="158" y2="20"/><rect class="dash" x="158" y="14" width="21" height="12" rx="0.6"/><text class="mid" x="168.5" y="19.3">APP SLOT</text><line class="flow" x1="168.5" y1="26" x2="168.5" y2="31"/><rect class="ln" x="158" y="31" width="21" height="10" rx="0.6"/><text class="mid" x="168.5" y="35.3">E-PAPER</text><text class="mid sm" x="168.5" y="38.5">800 × 480</text><line class="flow" x1="138" y1="34.5" x2="138" y2="26.2"/><rect class="ln" x="128" y="34.5" width="20" height="7" rx="0.6"/><text class="mid sm" x="138" y="38.9">POWER + UP</text><line class="flow" x1="117" y1="49.5" x2="117" y2="44.2"/><text class="sm" x="118.6" y="48.8">USB 5 V, CONNECTED</text><line class="thin" x1="16" y1="7.2" x2="16" y2="14"/><circle class="ln wht" cx="16" cy="5" r="2.2"/><text class="mid sm" x="16" y="5.75">1</text><line class="thin" x1="51" y1="7.2" x2="51" y2="14"/><circle class="ln wht" cx="51" cy="5" r="2.2"/><text class="mid sm" x="51" y="5.75">2</text><line class="thin" x1="83" y1="7.2" x2="83" y2="14"/><circle class="ln wht" cx="83" cy="5" r="2.2"/><text class="mid sm" x="83" y="5.75">3</text><line class="thin" x1="126.4" y1="38" x2="128" y2="38"/><line class="thin" x1="124.2" y1="40.2" x2="124.2" y2="38"/><circle class="ln wht" cx="124.2" cy="38" r="2.2"/><text class="mid sm" x="124.2" y="38.75">4</text><line class="thin" x1="155.6" y1="36" x2="158" y2="36"/><line class="thin" x1="153.2" y1="38.2" x2="153.2" y2="36"/><circle class="ln wht" cx="153.2" cy="36" r="2.2"/><text class="mid sm" x="153.2" y="36.75">5</text><text class="sm" x="2" y="30.0">STATION DATA:</text><text class="sm" x="2" y="33.1">1  UPDATE.BIN, 406 KB (415,616 B)</text><text class="sm" x="2" y="36.2">2  FILES › ON MY IPHONE</text><text class="sm" x="2" y="39.3">3  ROOT OF CARD, NO FOLDER</text><text class="sm" x="2" y="42.4">4  HOLD POWER + UP</text><text class="sm" x="2" y="45.5">5  "INKOS" HOME MENU</text><text class="sm" x="52" y="46.6">* SD LOADER: COMMUNITY-REPORTED,</text><text class="sm" x="52" y="49.6">  UNVERIFIED ON THIS UNIT</text><text class="sm" x="52" y="33.1">ROLLBACK (PAGE 2.1-2):</text><text class="sm" x="52" y="36.2">STOCK FILE, CROSSPOINT-</text><text class="sm" x="52" y="39.3">READER.COM/DEBUG, RENAMED</text><text class="sm" x="52" y="42.4">UPDATE.BIN, SAME ROUTE</text></svg><figcaption>Figure 2.1-1.   Software Load Path, Cloud to App Slot</figcaption><div class="code">IKS-501A</div></figure>
+
+  <div class="para"><div class="num">2.1.2</div><div class="hd">Functional Description.</div>
+    <div class="body">A passing build posts update.bin to the release LATEST. Prove the route first with the CrossPoint release file, then load InkOS the same way; any failure goes to page 2.1-2. On first boot, SETTINGS › DIAGNOSTICS shows each raw reading (figure 2.1-2).</div></div>
+  <div class="para sub chg"><div class="num">2.1.2.1</div><div class="hd">Button Decode Bands.</div>
+    <div class="body">Six buttons share two resistor ladders on GPIO 1 and 2. A reading outside its band is fixed in BOARD.H, not in hardware.</div></div>
+
+  <figure><svg viewBox="0 0 183.9 36" xmlns="http://www.w3.org/2000/svg"><text class="end" x="22" y="8.9">GPIO 1</text><rect class="ln" x="24" y="5" width="152" height="5.6"/><rect class="wht" x="32.56" y="6.3" width="10.35" height="3.2"/><text class="mid sm" x="37.73" y="8.75">RIGHT</text><rect class="hatch" x="51.47" y="5" width="49.00" height="5.6"/><line class="ln" x1="51.47" y1="5" x2="51.47" y2="10.6"/><rect class="wht" x="71.67" y="6.3" width="8.60" height="3.2"/><text class="mid sm" x="75.97" y="8.75">LEFT</text><line class="ln" x1="100.46" y1="5" x2="100.46" y2="10.6"/><rect class="wht" x="112.10" y="6.3" width="13.85" height="3.2"/><text class="mid sm" x="119.02" y="8.75">CONFIRM</text><rect class="hatch" x="137.58" y="5" width="27.47" height="5.6"/><line class="ln" x1="137.58" y1="5" x2="137.58" y2="10.6"/><rect class="wht" x="147.02" y="6.3" width="8.60" height="3.2"/><text class="mid sm" x="151.32" y="8.75">BACK</text><line class="ln" x1="165.05" y1="5" x2="165.05" y2="10.6"/><rect class="wht" x="166.23" y="6.3" width="8.60" height="3.2"/><text class="mid sm" x="170.53" y="8.75">IDLE</text><path class="blk" d="M 24.11 4.7 l -1 -1.7 h 2 z"/><path class="blk" d="M 78.56 4.7 l -1 -1.7 h 2 z"/><path class="blk" d="M 122.55 4.7 l -1 -1.7 h 2 z"/><path class="blk" d="M 152.80 4.7 l -1 -1.7 h 2 z"/><text class="end" x="22" y="20.9">GPIO 2</text><rect class="ln" x="24" y="17" width="152" height="5.6"/><rect class="wht" x="40.12" y="18.3" width="8.60" height="3.2"/><text class="mid sm" x="44.42" y="20.75">DOWN</text><rect class="hatch" x="64.83" y="17" width="76.09" height="5.6"/><line class="ln" x1="64.83" y1="17" x2="64.83" y2="22.6"/><rect class="wht" x="100.33" y="18.3" width="5.10" height="3.2"/><text class="mid sm" x="102.88" y="20.75">UP</text><line class="ln" x1="140.92" y1="17" x2="140.92" y2="22.6"/><rect class="wht" x="154.16" y="18.3" width="8.60" height="3.2"/><text class="mid sm" x="158.46" y="20.75">IDLE</text><path class="blk" d="M 24.11 16.7 l -1 -1.7 h 2 z"/><path class="blk" d="M 105.85 16.7 l -1 -1.7 h 2 z"/><line class="ln" x1="24" y1="26" x2="176" y2="26"/><line class="thin" x1="24.00" y1="26" x2="24.00" y2="27.4"/><line class="thin" x1="51.47" y1="26" x2="51.47" y2="27.4"/><line class="thin" x1="64.83" y1="26" x2="64.83" y2="27.4"/><line class="thin" x1="100.46" y1="26" x2="100.46" y2="27.4"/><line class="thin" x1="137.58" y1="26" x2="137.58" y2="27.4"/><line class="thin" x1="140.92" y1="26" x2="140.92" y2="27.4"/><line class="thin" x1="165.05" y1="26" x2="165.05" y2="27.4"/><line class="thin" x1="176.00" y1="26" x2="176.00" y2="27.4"/><text class="mid sm" x="24.00" y="29.9">0</text><text class="mid sm" x="51.47" y="29.9">740</text><text class="mid sm" x="64.83" y="32.5">1100</text><text class="mid sm" x="100.46" y="29.9">2060</text><text class="mid sm" x="137.58" y="29.9">3060</text><text class="mid sm" x="140.92" y="32.5">3150</text><text class="mid sm" x="165.05" y="29.9">3800</text><text class="mid sm" x="176.00" y="29.9">4095</text><text class="end sm" x="176" y="35.2">RAW ADC COUNTS, 12-BIT, 11 DB ATTENUATION</text><path class="blk" d="M 24.5 35.1 l -1 -1.7 h 2 z"/><text class="sm" x="26" y="35.2">NOMINAL READING (COMMUNITY MEASUREMENT)</text></svg><figcaption>Figure 2.1-2.   Button Decode Bands, Firmware v0.1</figcaption><div class="code">IKS-502A</div></figure>
+
+  <div class="band" id="band">
+    <div>
+      <div class="para" style="margin-bottom:1mm"><div class="num">2.1.3</div><div class="hd">Load Data.</div></div>
+      <table class="data">
+        <caption>Table 2.1-1.  InkOS v0.1 Load Data</caption>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Image file</td><td>UPDATE.BIN, 406 KB</td></tr>
+        <tr><td>Partition used</td><td>30.1 % of 1.25 MB build</td></tr>
+        <tr><td>RAM at build</td><td>62 KB of 320 KB</td></tr>
+        <tr><td>Load keys</td><td>POWER + UP, USB on</td></tr>
+        <tr><td>Display</td><td>800 × 480, SSD1677 assumed</td></tr>
+        <tr><td>Button poll</td><td>5 ms / 20 ms idle</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="notice"><div class="t">CAUTION</div>Keep USB power on until the load ends; a cut can corrupt the app slot.</div>
+      <div class="card"><div class="ct"><span>LOAD - INKOS</span><span>OPR</span></div>
+        <ol>
+          <li>FILES - UPDATE.BIN TO CARD ROOT</li>
+          <li class="v">SIZE - 406 KB, NO "-1" IN NAME</li>
+          <li>CARD IN, USB ON - POWER + UP HOLD</li>
+          <li class="v">HOME MENU - "INKOS"</li>
+          <li>DIAGNOSTICS - PRESS ALL 6</li>
+          <li class="v">COUNTS - IN BAND (FIG 2.1-2)</li>
+        </ol></div>
+    </div>
+  </div>
+
+  <div class="tab" style="top: 112mm; height: 22mm;">LOAD</div>
+  <div class="foot" id="foot">
+    <div class="rule">SOFTWARE LOAD</div>
+    <div class="row">
+      <span class="f">Mission<u>PERSONAL</u></span>
+      <span class="f">Basic Date<u>12 November 2026</u></span>
+      <span class="f">Change Date<u>-</u></span>
+      <span class="f">Page<u>2.1-1</u></span>
+    </div>
+  </div>
+</div>
+<script>
+/* fit check: room (mm) between the lowest content and the footer. Negative = overflow. */
+(async () => {
+  try { await document.fonts.ready; } catch (e) {}
+  const pg = document.getElementById('page'), ft = document.getElementById('foot');
+  const pxPerMm = 96 / 25.4;
+  let low = 0;
+  for (const el of pg.children) {
+    if (el === ft || el.classList.contains('tab')) continue;
+    low = Math.max(low, el.getBoundingClientRect().bottom);
+  }
+  const room = (ft.getBoundingClientRect().top - low) / pxPerMm;
+  document.documentElement.setAttribute('data-fit', room.toFixed(1));
+})();
+</script>
+</body>
+</html>

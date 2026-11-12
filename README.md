@@ -22,6 +22,9 @@ g++ -std=c++17 -Iinclude -Isrc test/test_logic.cpp -o /tmp/t && /tmp/t
    Avoid `pio run -t upload` until you have the backup — it rewrites the bootloader + partitions.
 4. Serial log: `pio device monitor` (USB CDC, 115200).
 
+## Handbook
+Printable load procedure (Apollo handbook pages): [docs/handbook](docs/handbook/).
+
 ## Phone-only route (no computer)
 1. Push this project to a GitHub repo → `.github/workflows/build.yml` builds it in the cloud and
    attaches `update.bin` to a release named **latest**.
