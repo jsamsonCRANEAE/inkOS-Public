@@ -1,0 +1,38 @@
+# Builds InkOS in the cloud on every push — no computer needed.
+# Result: a GitHub Release named "latest" with update.bin attached,
+# downloadable straight from your phone's browser.
+name: build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-${{ hashFiles('platformio.ini') }}
+      - name: Host tests (calendar math + buttons)
+        run: g++ -std=c++17 -Iinclude -Isrc test/test_logic.cpp -o /tmp/t && /tmp/t
+      - name: Build firmware
+        run: |
+          pip install platformio
+          pio run -e x4
+          cp .pio/build/x4/firmware.bin update.bin
+          ls -l update.bin
+      - uses: actions/upload-artifact@v4
+        with: { name: update.bin, path: update.bin }
+      - name: Publish to the "latest" release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release view latest >/dev/null 2>&1 || \
+            gh release create latest --prerelease --title "InkOS latest build" --notes "Auto-built from main. Copy update.bin to the SD card root."
+          gh release upload latest update.bin --clobber
+          gh release edit latest --notes "Built from ${GITHUB_SHA::7} on $(date -u +%F). Copy update.bin to the SD card root."
