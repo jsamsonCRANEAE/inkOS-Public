@@ -2,6 +2,7 @@
 #include "Screens.h"
 #include "../core/App.h"
 #include "../core/MenuScreen.h"
+#include "../hal/Escape.h"
 
 ScreenPtr makeHomeScreen() {
   return ScreenPtr(new MenuScreen("InkOS", {
@@ -61,5 +62,6 @@ ScreenPtr makeSettingsScreen() {
       {"Set date & time", nullptr, [](App& a) { a.push(makeSetDateScreen()); }},
       {"Diagnostics", nullptr, [](App& a) { a.push(makeDiagnosticsScreen()); }},
       {"Install update from SD", nullptr, [](App& a) { a.push(makeSdUpdateScreen()); }},
+      {"Boot other slot", nullptr, [](App& a) { a.clock.persist(); escape::bootOtherSlot(); }},
   }));
 }

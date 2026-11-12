@@ -27,6 +27,7 @@ jobs:
           pip install platformio
           pio run -e x4
           cp .pio/build/x4/firmware.bin update.bin
+          cp .pio/build/x4/firmware.bin firmware.bin
           ls -l update.bin
       - uses: actions/upload-artifact@v4
         with: { name: update.bin, path: update.bin }
@@ -35,5 +36,5 @@ jobs:
         run: |
           gh release view latest >/dev/null 2>&1 || \
             gh release create latest --prerelease --title "InkOS latest build" --notes "Auto-built from main. Copy update.bin to the SD card root."
-          gh release upload latest update.bin --clobber
+          gh release upload latest update.bin firmware.bin --clobber
           gh release edit latest --notes "Built from ${GITHUB_SHA::7} on $(date -u +%F). Copy update.bin to the SD card root."
