@@ -15,8 +15,9 @@ class Buttons {
   Event poll() {
     lastFront_ = analogRead(board::BTN_ADC_FRONT);
     lastSide_ = analogRead(board::BTN_ADC_SIDE);
-    bool pwr = digitalRead(board::BTN_POWER) == LOW;
-    return fsm_.update(decodeAll(lastFront_, lastSide_, pwr), millis());
+    uint32_t now = millis();
+    bool pwr = power_.filter(digitalRead(board::BTN_POWER) == LOW, now);
+    return fsm_.update(decodeAll(lastFront_, lastSide_, pwr), now);
   }
 
   bool powerHeld() const { return digitalRead(board::BTN_POWER) == LOW; }
@@ -26,5 +27,6 @@ class Buttons {
 
  private:
   ButtonFsm fsm_;
+  PowerGuard power_;
   uint16_t lastFront_ = 4095, lastSide_ = 4095;
 };

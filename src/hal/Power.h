@@ -28,7 +28,8 @@ inline bool usbPowered() {
 // Deep sleep; the power button (active LOW) wakes us.
 [[noreturn]] inline void deepSleep() {
   // Wait for release so we don't wake immediately on the same press.
-  while (digitalRead(board::BTN_POWER) == LOW) delay(10);
+  uint32_t t0 = millis();  // wait for release, but never hang on a stuck input
+  while (digitalRead(board::BTN_POWER) == LOW && millis() - t0 < 3000) delay(10);
   delay(50);
   esp_deep_sleep_enable_gpio_wakeup(1ULL << board::BTN_POWER, ESP_GPIO_WAKEUP_GPIO_LOW);
   esp_deep_sleep_start();

@@ -81,6 +81,8 @@ void App::loop() {
   idle();
 }
 
+static constexpr bool kUseLightSleep = false;
+
 // Adaptive polling.
 //  FAST: after any button activity, poll every 5 ms (CPU awake) for FAST_HOLD_MS.
 //  IDLE: once things go quiet, light-sleep 20 ms between polls to save battery.
@@ -91,9 +93,15 @@ void App::idle() {
   if (buttons.held() != Btn::None) lastActivity_ = now;  // holding counts as activity
   bool fast = now - lastActivity_ < FAST_HOLD_MS;
   if (fast) { delay(5); return; }
-  if (usb_) { delay(20); return; }
-  esp_sleep_enable_timer_wakeup(20 * 1000);
-  esp_light_sleep_start();
+  // Light sleep is DISABLED: on the X4 it corrupted button reads after waking
+  // (phantom POWER press -> unwanted deep sleep, all other buttons masked).
+  // Re-enable only after it's proven on hardware with a button-read self-check.
+  if (kUseLightSleep && !usb_) {
+    esp_sleep_enable_timer_wakeup(20 * 1000);
+    esp_light_sleep_start();
+    return;
+  }
+  delay(20);
 }
 
 void App::refreshPower() {

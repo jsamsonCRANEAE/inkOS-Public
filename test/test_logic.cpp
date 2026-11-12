@@ -44,6 +44,20 @@ static void testButtons() {
     CHECK(n >= 4 && ev[0].type == EvType::Long);
     for (int i = 1; i < n; i++) CHECK(ev[i].type == EvType::Repeat);
     printf("hold-1.5s events: %d (1 long + %d repeats)\n", n, n - 1); }
+  // PowerGuard: held at boot is ignored until released; stuck LOW disarms after 8 s
+  { PowerGuard g;
+    CHECK(!g.filter(true, 10));            // held from wake press: ignored
+    CHECK(!g.filter(false, 20));           // released -> armed
+    CHECK(g.filter(true, 30));             // real press counts
+    CHECK(g.filter(true, 30 + 7000));      // still within 8 s
+    CHECK(!g.filter(true, 30 + 9000));     // stuck: ignored
+    CHECK(!g.filter(true, 30 + 20000));    // stays ignored
+    CHECK(!g.filter(false, 30 + 20010));   // released -> re-armed
+    CHECK(g.filter(true, 30 + 20020)); }
+  // Power short hold (1 s) is a Press, not a Long (sleep needs 1.5 s)
+  { ButtonFsm f; Event ev[16]; int n = 0;
+    run(f, Btn::None, 0, 100, ev, n); run(f, Btn::Power, 100, 1100, ev, n); run(f, Btn::None, 1100, 1300, ev, n);
+    CHECK(n == 1 && ev[0].type == EvType::Press && ev[0].btn == Btn::Power); }
   // Long on Power does NOT repeat (so it can't trigger sleep twice)
   { ButtonFsm f; Event ev[64]; int n = 0;
     run(f, Btn::None, 0, 100, ev, n); run(f, Btn::Power, 100, 3000, ev, n); run(f, Btn::None, 3000, 3200, ev, n);

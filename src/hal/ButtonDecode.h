@@ -36,6 +36,25 @@ inline Btn decodeAll(uint16_t front, uint16_t side, bool powerLow) {
   return decodeSide(side);
 }
 
+// Guards the POWER input against two failure modes:
+//  - still held from the wake-up press at boot  -> ignore until first released
+//  - stuck LOW (hardware/sleep glitch)           -> ignore after 8 s until released
+class PowerGuard {
+ public:
+  static constexpr uint32_t STUCK_MS = 8000;
+  bool filter(bool rawLow, uint32_t now) {
+    if (!rawLow) { armed_ = true; lowSince_ = 0; return false; }
+    if (!armed_) return false;
+    if (lowSince_ == 0) lowSince_ = now ? now : 1;
+    if (now - lowSince_ > STUCK_MS) { armed_ = false; return false; }  // stuck: disarm
+    return true;
+  }
+  bool armed() const { return armed_; }
+ private:
+  bool armed_ = false;  // not armed until POWER is seen released once
+  uint32_t lowSince_ = 0;
+};
+
 // Debounced press / long-press / auto-repeat state machine.
 // Feed it the decoded button and a millisecond clock every few ms.
 //  - Short press  -> Press on release (if released before LONG_MS)
@@ -44,6 +63,7 @@ class ButtonFsm {
  public:
   static constexpr uint32_t DEBOUNCE_MS = 30;
   static constexpr uint32_t LONG_MS = 600;
+  static constexpr uint32_t POWER_LONG_MS = 1500;  // sleep needs a deliberate hold
   static constexpr uint32_t REPEAT_MS = 180;
 
   Event update(Btn raw, uint32_t now) {
@@ -68,7 +88,7 @@ class ButtonFsm {
     if (held_ == Btn::None) return {};
 
     uint32_t heldFor = now - heldSince_;
-    if (!longFired_ && heldFor >= LONG_MS) {
+    if (!longFired_ && heldFor >= (held_ == Btn::Power ? POWER_LONG_MS : LONG_MS)) {
       longFired_ = true;
       lastRepeat_ = now;
       return {EvType::Long, held_};
