@@ -23,6 +23,8 @@ class App {
 
  private:
   void render();
+  void idle();
+  void refreshPower();
   void drawStatusBar(Panel& g, const char* title);
 
   std::vector<ScreenPtr> stack_;
@@ -30,6 +32,8 @@ class App {
   uint32_t lastInput_ = 0;
   uint32_t lastTick_ = 0;
   int lastMinute_ = -1;
+  int battery_ = 0;   // cached: ADC reads once a minute, not every redraw
+  bool usb_ = false;
 };
 
 // Layout constants shared by all screens (portrait: 480 x 800).

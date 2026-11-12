@@ -37,6 +37,7 @@ class Display {
   void show(uint8_t fullEvery) {
     bool full = forceFull_ || (fullEvery > 0 && partials_ >= fullEvery);
     epd_.display(!full);
+    epd_.powerOff();  // panel holds the image with zero power; cut its charge pumps
     partials_ = full ? 0 : partials_ + 1;
     forceFull_ = false;
   }

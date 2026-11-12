@@ -2,12 +2,16 @@
 #include <Fonts/FreeSans9pt7b.h>
 #include <Fonts/FreeSansBold9pt7b.h>
 #include "../hal/Power.h"
+#include <esp_sleep.h>
 
 void App::begin(ScreenPtr root) {
+  // 80 MHz is plenty for an e-ink UI and roughly halves active current vs. 160 MHz.
+  setCpuFrequencyMhz(80);
   settings.load();
   clock.begin();
   buttons.begin();
   display.begin(settings.rotation);
+  refreshPower();
   lastInput_ = millis();
   push(std::move(root));
 }
@@ -63,13 +67,31 @@ void App::loop() {
     lastTick_ = now;
     if (stack_.back()->tick(*this)) dirty_ = true;
     int m = clock.minute();
-    if (m != lastMinute_) { lastMinute_ = m; dirty_ = true; }  // status-bar clock
+    if (m != lastMinute_) {  // once a minute: status-bar clock + battery
+      lastMinute_ = m;
+      refreshPower();
+      dirty_ = true;
+    }
   }
 
   if (settings.sleepMinutes && now - lastInput_ > settings.sleepMinutes * 60000UL) sleepNow();
 
   if (dirty_) { dirty_ = false; render(); }
-  delay(5);
+  idle();
+}
+
+// Between polls, nap instead of spinning. Light sleep keeps RAM and the screen state;
+// the CPU wakes every 20 ms to sample the buttons (debounce needs 2 stable samples).
+// On USB power we just delay, so the USB serial console stays connected for debugging.
+void App::idle() {
+  if (usb_ || buttons.held() != Btn::None) { delay(10); return; }
+  esp_sleep_enable_timer_wakeup(20 * 1000);
+  esp_light_sleep_start();
+}
+
+void App::refreshPower() {
+  battery_ = power::batteryPercent();
+  usb_ = power::usbPowered();
 }
 
 void App::render() {
@@ -87,7 +109,7 @@ void App::drawStatusBar(Panel& g, const char* title) {
   char right[32], t[16];
   clock.format(t, sizeof t, settings.clock24h);
   snprintf(right, sizeof right, "%s%s  %d%%%s", clock.approximate() ? "~" : "", t,
-           power::batteryPercent(), power::usbPowered() ? "+" : "");
+           battery_, usb_ ? "+" : "");
   g.setFont(&FreeSans9pt7b);
   int16_t x, y; uint16_t w, h;
   g.getTextBounds(right, 0, 0, &x, &y, &w, &h);
