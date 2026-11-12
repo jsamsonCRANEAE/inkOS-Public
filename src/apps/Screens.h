@@ -7,3 +7,4 @@ ScreenPtr makeSettingsScreen();
 ScreenPtr makeSetDateScreen();
 ScreenPtr makeDiagnosticsScreen();
 ScreenPtr makeCalendarScreen();
+ScreenPtr makeSdUpdateScreen();
