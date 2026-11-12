@@ -32,6 +32,8 @@ class App {
   uint32_t lastInput_ = 0;
   uint32_t lastTick_ = 0;
   int lastMinute_ = -1;
+  static constexpr uint32_t FAST_HOLD_MS = 3000;  // stay in fast mode this long after activity
+  uint32_t lastActivity_ = 0;
   int battery_ = 0;   // cached: ADC reads once a minute, not every redraw
   bool usb_ = false;
 };

@@ -51,6 +51,7 @@ void App::loop() {
 
   if (ev) {
     lastInput_ = now;
+    lastActivity_ = now;
     if (ev.btn == Btn::Power && ev.type == EvType::Long) sleepNow();
     if (ev.btn == Btn::Power && ev.type == EvType::Press) {
       // Short power press: force a clean full refresh (handy for ghosting).
@@ -80,11 +81,17 @@ void App::loop() {
   idle();
 }
 
-// Between polls, nap instead of spinning. Light sleep keeps RAM and the screen state;
-// the CPU wakes every 20 ms to sample the buttons (debounce needs 2 stable samples).
-// On USB power we just delay, so the USB serial console stays connected for debugging.
+// Adaptive polling.
+//  FAST: after any button activity, poll every 5 ms (CPU awake) for FAST_HOLD_MS.
+//  IDLE: once things go quiet, light-sleep 20 ms between polls to save battery.
+// A press from idle is caught within 20 ms, then the next FAST_HOLD_MS run at full speed.
+// On USB power we never light-sleep, so the serial console stays connected.
 void App::idle() {
-  if (usb_ || buttons.held() != Btn::None) { delay(10); return; }
+  uint32_t now = millis();
+  if (buttons.held() != Btn::None) lastActivity_ = now;  // holding counts as activity
+  bool fast = now - lastActivity_ < FAST_HOLD_MS;
+  if (fast) { delay(5); return; }
+  if (usb_) { delay(20); return; }
   esp_sleep_enable_timer_wakeup(20 * 1000);
   esp_light_sleep_start();
 }
