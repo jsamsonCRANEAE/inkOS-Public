@@ -1,6 +1,7 @@
 #include "Screens.h"
 #include "../core/App.h"
 #include "../hal/Power.h"
+#include <esp_ota_ops.h>
 #include <Fonts/FreeMono12pt7b.h>
 #include <Fonts/FreeSans9pt7b.h>
 
@@ -37,6 +38,12 @@ class DiagnosticsScreen : public Screen {
     snprintf(line, sizeof line, "Min heap  : %u KB", (unsigned)(ESP.getMinFreeHeap() / 1024)); row(line);
     snprintf(line, sizeof line, "Uptime    : %lu s", (unsigned long)(millis() / 1000)); row(line);
     snprintf(line, sizeof line, "Panel     : %dx%d", g.width(), g.height()); row(line);
+    const esp_partition_t* run = esp_ota_get_running_partition();
+    const esp_partition_t* oth = esp_ota_get_next_update_partition(nullptr);
+    esp_app_desc_t d;
+    bool othOk = oth && esp_ota_get_partition_description(oth, &d) == ESP_OK;
+    snprintf(line, sizeof line, "Running   : %s", run ? run->label : "?"); row(line);
+    snprintf(line, sizeof line, "Other     : %s %s", oth ? oth->label : "-", othOk ? "valid" : "EMPTY/BAD"); row(line);
 
     g.setFont(&FreeSans9pt7b);
     g.setCursor(ui::MARGIN, g.height() - 40);
